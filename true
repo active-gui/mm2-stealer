@@ -1,0 +1,49 @@
+```lua
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "TradeStealer"
+ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehaviorSibling
+local Frame = Instance.new("Frame")
+Frame.Name = "Frame"
+Frame.Parent = ScreenGui
+Frame.Size = UDim2.new(0, 400, 0, 400)
+local TextLabel = Instance.new("TextLabel")
+TextLabel.Name = "TextLabel"
+TextLabel.Parent = Frame
+TextLabel.Text = "Trade Stealer"
+TextLabel.Size = UDim2.new(0, 400, 0, 50)
+local Frame_2 = Instance.new("Frame")
+Frame_2.Name = "Frame_2"
+Frame_2.Parent = Frame
+Frame_2.Size = UDim2.new(0, 400, 0, 300)
+local Button = Instance.new("TextButton")
+Button.Name = "Button"
+Button.Parent = Frame_2
+Button.Size = UDim2.new(0, 200, 0, 50)
+Button.Text = "Steal Trade"
+local Function
+stealTrade()
+local Trade = game.Players.LocalPlayer.PlayerGui.MainGui.TradeFrame.Trade
+local Player = Trade.Player1
+local TradeItem = Trade.TradeItem
+local PlayerItem = Player.Backpack:FindFirstChild(TradeItem.Name)
+if PlayerItem then
+    PlayerItem:Destroy()
+end
+local function getTrade()
+    while wait(0.1) do
+        if Trade.Trade then
+            local TradeItem = Trade.Trade.Item
+            local PlayerItem = Player.Backpack:FindFirstChild(TradeItem.Name)
+            if PlayerItem then
+                PlayerItem:Destroy()
+            end
+        end
+    end
+end
+getTrade()
+--free mm2 stealer```
